@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Edit staff</title> 
+    </head> 
+    <style> 
+        table{ 
+          border-collapse: collapse;
+        } 
+        .wrapper {
+    text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <body> 
+        {% if error %}  
+        <p><strong>Error</strong>: {{error}}</p>  
+        {% endif %} 
+        <h2>Please staff details to edit.</h2>
+        <form method="POST"> 
+            <label>StaffId:</label> 
+            <select name="staffId">
+                {%for st in staff%} 
+                <option value={{st[0]}}>{{st[0]}}</option>
+                {%endfor%} 
+            </select> <br/>
+            <label>Name:</label> 
+            <input type="name" name="name" placeholder="Enter name"><br/> 
+            <label>Position:</label> 
+            <input type="name" name="position" placeholder="Enter position"><br/> 
+            <label>Salary:</label> 
+            <input type="name" name="salary" placeholder="Enter salary"><br/> 
+            <label>Branch number:</label> 
+            <select name="branchNo">
+                {%for branch in data%} 
+                <option value={{branch[0]}}>{{branch[0]}}: {{branch[1]}}</option>
+                {%endfor%} 
+            </select>
+            <input type = "submit" value = "Edit staff"/><br/> 
+        </form> 
+        <div class="wrapper">
+            <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+        </div>
+    </body> 
+</html>

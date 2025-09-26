@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Delete branch</title> 
+    </head> 
+    <style> 
+        .wrapper {
+    text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <body> 
+        {% if error %}  
+        <p><strong>Error</strong>: {{error}}</p>  
+        {% endif %} 
+        <h2>Please enter the branch number to delete.</h2>
+        <form method="POST"> 
+            <label>StaffId:</label> 
+            <input type="name" name="branchNo" placeholder="Enter branch number" required><br/> 
+            <input type = "submit" value = "Delete branch"/><br/> 
+        </form> 
+        <div class="wrapper">
+            <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+        </div>
+    </body> 
+</html>

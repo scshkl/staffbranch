@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>New staff</title> 
+    </head>
+    <style> 
+        .wrapper {
+            text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <body>
+        <h2>
+            Please enter details on the new staff.
+        </h2>
+        <form method="POST"> 
+            <label>StaffId:</label> 
+            <input type="name" name="staffId" placeholder="Enter staff number"><br/> 
+            <label>Name:</label> 
+            <input type="name" name="name" placeholder="Enter name"><br/> 
+            <label>Position:</label> 
+            <input type="name" name="position" placeholder="Enter position"><br/> 
+            <label>Salary:</label> 
+            <input type="name" name="salary" placeholder="Enter salary"><br/> 
+            <label>Branch number:</label> 
+            <select name="branchNo">
+                {%for branch in data%} 
+                <option value={{branch[0]}}>{{branch[0]}}: {{branch[1]}}</option>
+                {%endfor%} 
+            </select>
+            <br/>
+            <input type = "submit" value = "Add Staff"/><br/> 
+        </form>
+        <br/>
+        <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+    </body> 
+</html>

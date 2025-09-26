@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Delete staff</title> 
+    </head> 
+    <style> 
+        .wrapper {
+    text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <body> 
+        {% if error %}  
+        <p><strong>Error</strong>: {{error}}</p>  
+        {% endif %} 
+        <h2>Please enter the staffId for the staff to delete.</h2>
+        <form method="POST"> 
+            <label>StaffId:</label> 
+            <input type="name" name="staffId" placeholder="Enter staff number" required><br/> 
+            <input type = "submit" value = "Delete staff"/><br/> 
+        </form> 
+        <div class="wrapper">
+            <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+        </div>
+    </body> 
+</html>

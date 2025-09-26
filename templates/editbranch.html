@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Edit branch details</title> 
+    </head> 
+    <style> 
+        table{ 
+          border-collapse: collapse;
+        } 
+        .wrapper {
+    text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <body> 
+        {% if error %}  
+        <p><strong>Error</strong>: {{error}}</p>  
+        {% endif %} 
+        <h2>Please branch details to edit.</h2>
+        <form method="POST"> 
+            <label>Branch number:</label> 
+            <input type="name" name="branchNo" placeholder="Enter branch number"><br/> 
+            <label>Branch address:</label> 
+            <input type="name" name="branchAddress" placeholder="Enter branch address"><br/> 
+            <input type = "submit" value = "Edit branch"/><br/> 
+        </form> 
+        <div class="wrapper">
+            <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+        </div>
+    </body> 
+</html>

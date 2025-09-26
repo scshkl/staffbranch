@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>All staff</title> 
+    </head> 
+    <style> 
+        table{ 
+          border-collapse: collapse;
+        } 
+        .wrapper {
+    text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+
+        th, td {
+          border: 1px solid #ddd;
+          padding:4px;text-align: center;
+        }
+        tr:nth-child(even){
+          background-color: #f2f2f2;
+        }
+        tr:hover {
+          background-color: #ddd;
+        }
+        th {
+          padding-top: 6px;
+          padding-bottom: 6px;
+          background-color: #4CAF50;
+          color: white;}
+        </style> 
+    <body>
+      <h2>List of all staff details</h2>
+        <table> 
+            <tr> 
+              <th>StaffID</th> 
+              <th>Name</th> 
+              <th>Position</th> 
+              <th>Salary</th> 
+              <th>BranchNo</th> 
+            </tr> 
+            {%for participant in data%} 
+               <tr> 
+                 <td>{{participant[0]}}</td> 
+                 <td>{{participant[1]}}</td> 
+                 <td>{{participant[2]}}</td> 
+                 <td>{{participant[3]}}</td> 
+                 <td>{{participant[4]}}</td>  
+                </tr> 
+            {%endfor%} 
+          </table>
+        </br>
+          <div class="wrapper">
+            <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+          </div>
+            
+    </body> 
+</html> 

@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>New branch</title> 
+    </head>
+    <style> 
+        .wrapper {
+            text-align: center;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <body>
+        <h2>
+            Please enter details on the new staff.
+        </h2>
+        <form method="POST"> 
+            <label>Branch number:</label> 
+            <input type="name" name="branchNo" placeholder="Enter branch number"><br/> 
+            <label>Branch address:</label> 
+            <input type="name" name="branchAddress" placeholder="Enter branch address"><br/> 
+            <input type = "submit" value = "Add branch"/><br/> 
+        </form>
+        <br/>
+        <button class="btn" type="button" onclick="window.location.href='{{url_for('index')}}';">Back to Main</button>
+    </body> 
+</html>

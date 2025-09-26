@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Staff Branch Management System</title> 
+    </head> 
+    <style> 
+        table, tr, td{ 
+          border-collapse: collapse;
+          border: 1px solid black;
+        }
+        th, td {
+          padding:8px;text-align: center;
+        }
+        </style>
+    <body> 
+        <h1>Staff Branch Management System</h1> 
+        <h2>
+            This is just a simple demo program.
+        </h2>
+        <table>
+            <tr>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('addnew')}}';">Add staff</button></td>
+                <td> <button class="btn" type="button" onclick="window.location.href='{{url_for('editstaff')}}';">Edit staff details</button></td>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('deletestaff')}}';">Delete a staff</button></td>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('allstaff')}}';">List all staff details</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('addbranch')}}';">Add branch</button></td>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('editbranch')}}';">Edit branch details</button></td>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('deletebranch')}}';">Delete a branch</button></td>
+                <td><button class="btn" type="button" onclick="window.location.href='{{url_for('allbranch')}}';">List all branches</button></td>
+            </tr>
+        </table>
+    </body> 
+</html> 
