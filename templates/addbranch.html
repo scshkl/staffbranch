@@ -13,6 +13,9 @@
         }
     </style>
     <body>
+        {% if error %}  
+            <p><strong>Error</strong>: {{error}}</p>  
+        {% endif %} 
         <h2>
             Please enter details on the new staff.
         </h2>

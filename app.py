@@ -86,10 +86,10 @@ def addbranch():
                 cursor.execute("INSERT INTO Branch (branchNo, branchAddress) VALUES (?,?)", 
                            (branchNo, branchAddress)) 
                 users.commit()
+                return render_template("index.html") 
             except sqlite3.IntegrityError as e:
-                return render_template('addbranch.html', error='sqlite error '+ e.args[0]) 
                 print('sqlite error: ', e.args[0])  
-        return render_template("index.html") 
+                return render_template('addbranch.html', error=e.args[0]) 
     else: 
         return render_template('addbranch.html') 
     
