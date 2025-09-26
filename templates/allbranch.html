@@ -32,6 +32,9 @@
           color: white;}
         </style> 
     <body>
+        {% if error %}  
+            <p><strong>Error</strong>: {{error}}</p>  
+        {% endif %} 
       <h2>List of all branches</h2>
         <table> 
             <tr> 

@@ -9,9 +9,10 @@ def index():
     return render_template('index.html') 
   
   
-connect = sqlite3.connect('staffBranch.db') 
-connect.execute('CREATE TABLE IF NOT EXISTS Staff (staffId TEXT, name TEXT, position TEXT, salary REAL, branchNo TEXT)')
-connect.execute('CREATE TABLE IF NOT EXISTS Branch (branchNo TEXT, branchAddress TEXT)') 
+connect = sqlite3.connect('staffBranch.db')
+connect.execute('CREATE TABLE IF NOT EXISTS Branch (branchNo TEXT PRIMARY KEY, branchAddress TEXT)') 
+connect.execute('CREATE TABLE IF NOT EXISTS Staff (staffId TEXT PRIMARY KEY, name TEXT, position TEXT, salary REAL, branchNo TEXT, FOREIGN KEY(branchNo) REFERENCES Branch(branchNo))')
+
   
 @app.route('/addnew', methods=['GET', 'POST']) 
 def addnew(): 
@@ -80,10 +81,14 @@ def addbranch():
         branchAddress = request.form['branchAddress'] 
   
         with sqlite3.connect("staffBranch.db") as users: 
-            cursor = users.cursor() 
-            cursor.execute("INSERT INTO Branch (branchNo, branchAddress) VALUES (?,?)", 
+            cursor = users.cursor()
+            try:
+                cursor.execute("INSERT INTO Branch (branchNo, branchAddress) VALUES (?,?)", 
                            (branchNo, branchAddress)) 
-            users.commit() 
+                users.commit()
+            except sqlite3.IntegrityError as e:
+                return render_template('addbranch.html', error='sqlite error '+ e.args[0]) 
+                print('sqlite error: ', e.args[0])  
         return render_template("index.html") 
     else: 
         return render_template('addbranch.html') 
