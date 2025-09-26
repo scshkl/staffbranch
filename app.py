@@ -24,10 +24,13 @@ def addnew():
         branchNo = request.form['branchNo'] 
         with sqlite3.connect("staffBranch.db") as users: 
             cursor = users.cursor() 
-            cursor.execute("INSERT INTO Staff VALUES (?,?,?,?,?)", 
+            try:
+                cursor.execute("INSERT INTO Staff VALUES (?,?,?,?,?)", 
                            (staffId, name, position, salary, branchNo)) 
-            users.commit() 
-        return render_template("index.html") 
+                users.commit()
+                return render_template("index.html") 
+            except sqlite3.IntegrityError as e:
+                return render_template('addnew.html', error=e.args[0]) 
     else:
         connect = sqlite3.connect('staffBranch.db') 
         cursor = connect.cursor() 
