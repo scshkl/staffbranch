@@ -114,11 +114,6 @@ def editstaff():
     
         connect = sqlite3.connect('staffBranch.db') 
         cursor = connect.cursor()
-       # query = """UPDATE Staff SET name=?, position=?, salary=?, branchNo=? WHERE staffId = ?"""
-       # cursor.execute(query, (name, position, salary, branchNo, sId))
-       # connect.commit()
-       # cursor.execute('SELECT staffId, name FROM Staff')
-       # staff = cursor.fetchall()
         return render_template('editstaff.html', error="Update successful", data=data, staff=staff) 
     else:
         return render_template('editstaff.html', error=error, data=data, staff=staff)
